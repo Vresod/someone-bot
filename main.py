@@ -8,7 +8,7 @@ with open("tokenfile", "r") as tokenfile:
 
 changeNick = False if "dontChangeNick" in cliargs else True # default value: True
 includeBots = True if "includeBots" in cliargs else False # default value: False
-sayMessage = False if "dontSayMessage" in cliargs else True # default value: True
+sayMessage = True if "SayMessage" in cliargs else False # default value: False
 print(f"changeNick: {changeNick}\nincludeBots: {includeBots}\nsayMessage: {sayMessage}")
 
 client = discord.Client()
