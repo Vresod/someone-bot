@@ -8,7 +8,8 @@ with open("tokenfile", "r") as tokenfile:
 
 changeNick = False if "dontChangeNick" in cliargs else True # default value: True
 includeBots = True if "includeBots" in cliargs else False # default value: False
-print(f"changeNick: {changeNick}\nincludeBots: {includeBots}")
+sayMessage = False if "dontSayMessage" in cliargs else True # default value: True
+print(f"changeNick: {changeNick}\nincludeBots: {includeBots}\nsayMessage: {sayMessage}")
 
 client = discord.Client()
 @client.event
@@ -34,10 +35,13 @@ async def on_message(message):
 		return
 	memberlist = message.guild.members
 	if message.guild.me in message.mentions:
-		randomuser = memberlist[random.randint(0,len(memberlist))]
+		randomuser = memberlist[random.randint(0,len(memberlist) - 1)]
 		if randomuser.bot and not includeBots: # this is a stupid way to do it but its the only way that it works
 			while randomuser.bot:
 				randomuser = memberlist[random.randint(0,len(memberlist) - 1)]
-		await message.channel.send(f"{randomuser.mention}")
+		if sayMessage:
+			await message.channel.send(f"{message.content.replace(message.guild.me.mention,randomuser.mention)}")
+		else:
+			await message.channel.send(f"{randomuser.mention}")
 
 client.run(token)
