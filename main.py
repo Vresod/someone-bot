@@ -35,7 +35,7 @@ async def on_message(message):
 	memberlist = message.guild.members
 	if message.guild.me in message.mentions:
 		randomuser = memberlist[random.randint(0,len(memberlist))]
-		if randomuser.bot and not includeBots:
+		if randomuser.bot and not includeBots: # this is a stupid way to do it but its the only way that it works
 			while randomuser.bot:
 				randomuser = memberlist[random.randint(0,len(memberlist) - 1)]
 		await message.channel.send(f"{randomuser.mention}")
