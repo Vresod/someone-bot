@@ -35,8 +35,9 @@ async def on_message(message):
 	memberlist = message.guild.members
 	if message.guild.me in message.mentions:
 		randomuser = memberlist[random.randint(0,len(memberlist))]
-		while includeBots or randomuser.bot:
-			randomuser = memberlist[random.randint(0,len(memberlist) - 1)]
+		if randomuser.bot and not includeBots:
+			while randomuser.bot:
+				randomuser = memberlist[random.randint(0,len(memberlist) - 1)]
 		await message.channel.send(f"{randomuser.mention}")
 
 client.run(token)
