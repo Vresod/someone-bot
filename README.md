@@ -13,3 +13,9 @@ for admins (who dont have server hardware): https://discord.com/api/oauth2/autho
 ## why??????
 
 reference to discord 2018 april fools joke, [Discord now has @someone](https://www.youtube.com/watch?v=BeG5FqTpl9U). 
+
+## this is annoying!!! please stop spamming me!!!!
+
+ok. point the person spamming here.
+
+DONT SPAM THE BOT!!! SPAMMING IS ANNOYING AND WHEN USING IT WITH THIS BOT ESPECIALLY IT IS *REALLY ANNOYING*.
