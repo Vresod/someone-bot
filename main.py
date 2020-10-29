@@ -11,7 +11,10 @@ includeBots = True if "includeBots" in cliargs else False # default value: False
 sayMessage = True if "SayMessage" in cliargs else False # default value: False
 print(f"changeNick: {changeNick}\nincludeBots: {includeBots}\nsayMessage: {sayMessage}")
 
-client = discord.Client()
+intents = discord.Intents.default()
+intents.members = True
+
+client = discord.Client(intents=intents)
 @client.event
 async def on_guild_join(guild):
 	if(not changeNick):
